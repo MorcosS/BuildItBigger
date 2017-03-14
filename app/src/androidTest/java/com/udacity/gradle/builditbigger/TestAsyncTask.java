@@ -15,6 +15,6 @@ import static org.junit.Assert.assertEquals;
 public class TestAsyncTask extends AndroidTestCase{
     @Test
     public void testAsyncTask() throws Exception{
-        assertEquals("Hi, " + "Joke",new EndpointsAsyncTask().doInBackground("Joke"));
+        assertEquals("This is totally a funny joke",new EndpointsAsyncTask().doInBackground("Tell me a Joke"));
     }
 }

@@ -6,7 +6,6 @@ import android.os.AsyncTask;
 import android.util.Pair;
 import android.widget.Toast;
 
-import com.example.JokeTeller;
 import com.example.morcoss.myapplication.backend.myApi.MyApi;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -23,11 +22,9 @@ import java.io.IOException;
 public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
     private static MyApi myApiService = null;
     private Context context;
-    private JokeTeller jokeTeller;
 
     @Override
     protected String doInBackground(Pair<Context, String>... params) {
-        jokeTeller = new JokeTeller();
         if(myApiService == null) {  // Only do this once
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
@@ -88,7 +85,7 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
     protected void onPostExecute(String result) {
         Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         Intent intent = new Intent(context, Joke_Activity.class);
-        intent.putExtra(context.getResources().getString(R.string.joke),jokeTeller.getJoke());
+        intent.putExtra(context.getResources().getString(R.string.joke),result);
         context.startActivity(intent);
     }
 

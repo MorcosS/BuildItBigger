@@ -6,6 +6,7 @@
 
 package com.example.MorcosS.myapplication.backend;
 
+import com.example.JokeTeller;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
@@ -31,8 +32,9 @@ public class MyEndpoint {
      */
     @ApiMethod(name = "sayHi")
     public MyBean sayHi(@Named("name") String name) {
+        JokeTeller jokeTeller = new JokeTeller();
         MyBean response = new MyBean();
-        response.setData("Hi, " + name);
+        response.setData(jokeTeller.getJoke());
         return response;
     }
 

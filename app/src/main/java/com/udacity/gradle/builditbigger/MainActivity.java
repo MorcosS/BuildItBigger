@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
-import com.example.JokeTeller;
 import com.nanodegree.joketellerapp.Joke_Activity;
 
 public class MainActivity extends AppCompatActivity {
@@ -44,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        new EndpointsAsyncTask().execute(new Pair<Context, String>(view.getContext(), "Joke"));
+        new EndpointsAsyncTask().execute(new Pair<Context, String>(view.getContext(), "Tell me a Joke"));
 
     }
 
